@@ -8,10 +8,17 @@ public class WaitScript : MonoBehaviour
     private Animator anim;
     private int nextAnim = 1;
 
+    public AudioClip v1;
+    public AudioClip v2;
+    public AudioClip v3;
+    AudioSource audioSource;
+
     // Start is called before the first frame update
     void Start()
     {
         this.anim = GetComponent<Animator>();
+
+        audioSource = GetComponent<AudioSource>();
     }
 
     // Update is called once per frame
@@ -48,14 +55,17 @@ public class WaitScript : MonoBehaviour
             {
                 case 1:
                     anim.Play("Nobi");
+                    audioSource.PlayOneShot(v1);
                     nextAnim = 2;
                     break;
                 case 2:
                     anim.Play("Burabura");
+                    audioSource.PlayOneShot(v2);
                     nextAnim = 3;
                     break;
                 case 3:
                     anim.Play("Yahho");
+                    audioSource.PlayOneShot(v3);
                     nextAnim = 1;
                     break;
                 default:
